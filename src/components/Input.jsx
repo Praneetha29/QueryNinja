@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-sql';
 import 'ace-builds/src-noconflict/theme-dracula';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy, faTrashAlt, faHistory } from '@fortawesome/free-solid-svg-icons'; 
 
 import '../styles/Input.css';
 
@@ -9,6 +11,7 @@ function Input() {
   const [inputValue, setInputValue] = useState('');
   const [codeHistory, setCodeHistory] = useState([]);
   const [selectedCodeIndex, setSelectedCodeIndex] = useState(-1);
+  const [showCodeHistory, setShowCodeHistory] = useState(false);
 
   const handleInputChange = (newValue) => {
     setInputValue(newValue);
@@ -32,9 +35,23 @@ function Input() {
     setInputValue(codeHistory[index]);
   };
 
+  const toggleCodeHistory = () => {
+    setShowCodeHistory(!showCodeHistory);
+  };
+
   return (
     <div className="input">
-      <h2>Input</h2>
+      <div className="input-buttons">
+        <button onClick={handleCopyClick}>
+          <FontAwesomeIcon icon={faCopy} />
+        </button>
+        <button onClick={handleClearClick}>
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </button>
+        <button onClick={toggleCodeHistory}>
+          <FontAwesomeIcon icon={faHistory} />
+        </button>
+      </div>
       <div className="code-editor">
         <AceEditor
           mode="sql"
@@ -42,30 +59,27 @@ function Input() {
           onChange={handleInputChange}
           value={inputValue}
           placeholder="Enter your SQL query here..."
-          fontSize={14}
-          width="100%"
-          height="200px"
         />
       </div>
-      <div className="input-buttons">
-        <button onClick={handleExecuteClick}>Execute</button>
-        <button onClick={handleCopyClick}>Copy</button>
-        <button onClick={handleClearClick}>Clear</button>
+      <div className="run-buttons">
+        <button onClick={handleExecuteClick}>Run SQL</button>
       </div>
-      <div className="code-history">
-        <h3>Code History</h3>
-        <ul>
-          {codeHistory.map((code, index) => (
-            <li
-              key={index}
-              className={index === selectedCodeIndex ? 'selected' : ''}
-              onClick={() => handleCodeHistoryClick(index)}
-            >
-              {code}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {showCodeHistory && (
+        <div className="code-history">
+          <h3>Code History</h3>
+          <ul>
+            {codeHistory.map((code, index) => (
+              <li
+                key={index}
+                className={index === selectedCodeIndex ? 'selected' : ''}
+                onClick={() => handleCodeHistoryClick(index)}
+              >
+                {code}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

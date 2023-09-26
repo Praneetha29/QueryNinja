@@ -1,37 +1,39 @@
+
 .main-container {
     display: flex;
-    height: calc(100vh - 4rem);
+    height: calc(100vh - 4rem); 
     margin: 1rem;
-}
-
-.content {
+  }
+  
+  .content {
     display: flex;
     flex-direction: column;
     flex: 1;
-}
-
-.top {
+  }
+  
+  .top {
     flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-}
-
-.bottom {
+  }
+  
+  .bottom {
     flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-}
-
-.minimize-button {
+  }
+  
+  .minimize-button {
     align-self: flex-start;
     margin-right: 1rem;
-}
+  }
+  
 
-
-.queries {
+  .queries {
     flex: 1;
     width: 20%;
-
-}
+   
+  }
+  

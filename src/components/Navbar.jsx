@@ -7,7 +7,7 @@ function Navbar() {
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
-  };
+  }; 
 
   return (
     <nav className="navbar" id="custom-navbar">
@@ -15,7 +15,7 @@ function Navbar() {
         <span role="img" aria-label="ninja" className="ninja-emoji">
           🥋
         </span>
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand">
           QueryNinja- Your SQL Editor
         </a>
       </div>
