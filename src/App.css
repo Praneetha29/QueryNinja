@@ -5,11 +5,11 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #222732; /* Updated background color */
-  /* ... */
+  background-color: #222732; 
+  
 }
 
-/* ... */
+
 
 button {
   border-radius: 8px;
@@ -18,8 +18,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #4C81F1; /* Updated button background color */
-  color: #293857; /* Updated button text color */
+  background-color: #4C81F1;
+  color: #293857;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -31,4 +31,3 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* ... */
