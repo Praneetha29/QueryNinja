@@ -3,11 +3,11 @@ import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-sql';
 import 'ace-builds/src-noconflict/theme-dracula';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy, faTrashAlt, faHistory } from '@fortawesome/free-solid-svg-icons'; 
+import { faCopy, faTrashAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
 
 import '../styles/Input.css';
 
-function Input() {
+function Input({ executeSQL }) { 
   const [inputValue, setInputValue] = useState('');
   const [codeHistory, setCodeHistory] = useState([]);
   const [selectedCodeIndex, setSelectedCodeIndex] = useState(-1);
@@ -20,6 +20,9 @@ function Input() {
   const handleExecuteClick = () => {
     setCodeHistory([...codeHistory, inputValue]);
     setInputValue('');
+
+    
+    executeSQL(inputValue);
   };
 
   const handleCopyClick = () => {
