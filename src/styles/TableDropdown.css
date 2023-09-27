@@ -1,7 +1,7 @@
 
 .btn-primary {
   background-color: #4C81F1;
-  color: #293857;
+  color: #222732;
   border: none;
   border-radius: 8px;
   padding: 0.6em 1.2em;
@@ -9,7 +9,6 @@
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
-  transition: background-color 0.25s, color 0.25s, border-color 0.25s;
   margin-right: 1.5rem;
 }
 
@@ -18,7 +17,7 @@
 .btn-primary:focus,
 .btn-primary:focus-visible {
   background-color: #3c6bf2;
-  color: #293857;
+  color: #222732;
   border-color: #3c6bf2;
 }
 

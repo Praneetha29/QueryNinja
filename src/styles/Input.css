@@ -72,4 +72,7 @@
   .predefined-queries li.selected {
     font-weight: bold;
   }
-  
+   
+  .code-history{
+    color: #ADAFB7;
+  }
