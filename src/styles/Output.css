@@ -3,7 +3,7 @@
     padding: 1rem;
     border: 1px solid transparent;
     border-radius: 8px;
-    
+    height: 88%;
     background-color: #222732;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     color: rgba(255, 255, 255, 0.87);
@@ -68,5 +68,11 @@
     font-size: 1rem;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.87);
+  }
+  .output-console .placeholder {
+    font-size: 1.5rem;
+    background-color: #222732;
+    text-align: center;
+    margin-top: 0.5rem;
   }
   
