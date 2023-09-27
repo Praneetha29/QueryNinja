@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import PreExistingQueries from './Queries';
+import React, { useState, lazy, Suspense } from 'react';
 import Input from './Input';
-import OutputConsole from './Output'; 
+import OutputConsole from './Output';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import customerData from './CustomerData';
 import '../styles/MainContainer.css';
+
+const PreExistingQueries = lazy(() => import('./Queries'));
 
 function MainContainer() {
   const [isQueriesMinimized, setQueriesMinimized] = useState(false);
@@ -17,7 +18,7 @@ function MainContainer() {
   };
 
   const executeSQL = (sqlQuery) => {
-    const result = customerData; 
+    const result = customerData;
     setOutputData(result);
   };
 
@@ -28,10 +29,12 @@ function MainContainer() {
   return (
     <div className="main-container">
       {!isQueriesMinimized && (
-        <PreExistingQueries
-          handleQueryClick={handleQueryClick}
-          selectedQuery={selectedQuery}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <PreExistingQueries
+            handleQueryClick={handleQueryClick}
+            selectedQuery={selectedQuery}
+          />
+        </Suspense>
       )}
       <div className={`content ${isQueriesMinimized ? 'expanded' : ''}`}>
         <button className="minimize-button" onClick={toggleQueriesMinimized}>

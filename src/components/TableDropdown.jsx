@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import '../styles/TableDropdown.css';
 
@@ -41,6 +42,8 @@ function TableDropdown() {
         type="button"
         id="tableDropdown"
         onClick={() => setShowTables(!showTables)}
+        aria-expanded={showTables}
+        aria-haspopup="true"
       >
         View Tables
       </button>
@@ -64,3 +67,4 @@ function TableDropdown() {
 }
 
 export default TableDropdown;
+

@@ -24,7 +24,13 @@ function ExportButton() {
   };
 
   return (
-    <button className='export-button' onClick={exportToCSV}>Export CSV</button>
+    <button
+      className='export-button'
+      onClick={exportToCSV}
+      aria-label="Export CSV"
+    >
+      Export CSV
+    </button>
   );
 }
 

@@ -15,7 +15,7 @@ function Navbar() {
         <span role="img" aria-label="ninja" className="ninja-emoji">
           🥋
         </span>
-        <a className="navbar-brand">
+        <a className="navbar-brand" href="#">
           QueryNinja- Your SQL Editor
         </a>
       </div>
