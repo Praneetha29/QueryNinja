@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-sql';
 import 'ace-builds/src-noconflict/theme-dracula';
@@ -7,11 +7,15 @@ import { faCopy, faTrashAlt, faHistory } from '@fortawesome/free-solid-svg-icons
 
 import '../styles/Input.css';
 
-function Input({ executeSQL }) { 
+function Input({ executeSQL, selectedQuery }) {
   const [inputValue, setInputValue] = useState('');
   const [codeHistory, setCodeHistory] = useState([]);
   const [selectedCodeIndex, setSelectedCodeIndex] = useState(-1);
   const [showCodeHistory, setShowCodeHistory] = useState(false);
+
+  useEffect(() => {
+    setInputValue(selectedQuery);
+  }, [selectedQuery]);
 
   const handleInputChange = (newValue) => {
     setInputValue(newValue);
@@ -20,8 +24,6 @@ function Input({ executeSQL }) {
   const handleExecuteClick = () => {
     setCodeHistory([...codeHistory, inputValue]);
     setInputValue('');
-
-    
     executeSQL(inputValue);
   };
 
