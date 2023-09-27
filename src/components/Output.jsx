@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ExportButton from './ExportButton'; 
 import '../styles/Output.css';
 
 function OutputConsole({ data }) {
@@ -8,8 +9,6 @@ function OutputConsole({ data }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
-   
-
     if (data.length > 0) {
       setPlaceholder('');
     } else {
@@ -75,6 +74,7 @@ function OutputConsole({ data }) {
           </button>
         </div>
       )}
+      {data.length > 0 && <ExportButton />} 
     </div>
   );
 }
