@@ -1,14 +1,14 @@
-import React, { useState, Suspense } from 'react';
+
+import React, { useState, lazy, Suspense } from 'react';
+import Input from './Input';
+import OutputConsole from './Output';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import customerData from './CustomerData';
 import '../styles/MainContainer.css';
 
-import loadable from '@loadable/component';
+const PreExistingQueries = lazy(() => import('./Queries'));
 
-const PreExistingQueries = loadable(() => import('./Queries'));
-const Input = loadable(() => import('./Input'));
-const OutputConsole = loadable(() => import('./Output'));
 
 function MainContainer() {
   const [isQueriesMinimized, setQueriesMinimized] = useState(false);
