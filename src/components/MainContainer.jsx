@@ -43,7 +43,7 @@ function MainContainer() {
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
         <div className={`input-output-container ${isQueriesMinimized ? 'expanded' : ''}`}>
-          <div className="input">
+          <div className="input2">
             <Input executeSQL={executeSQL} selectedQuery={selectedQuery} />
           </div>
           <div className="output">

@@ -45,7 +45,7 @@ function Input({ executeSQL, selectedQuery }) {
   };
 
   return (
-    <div className="input">
+    <div className="input-main">
       <div className="input-buttons">
         <button onClick={handleCopyClick}>
           <FontAwesomeIcon icon={faCopy} />

@@ -1,8 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ExportButton from './ExportButton'; 
 import '../styles/Output.css';
+import axios from 'axios';
 
-function OutputConsole({ data }) {
+function OutputConsole() {
+  const [data, setData] = useState([])
+    useEffect(()=> {
+     axios.get('https://jsonplaceholder.typicode.com/users')
+     .then(res=> {console.log(res);
+    setData(res.data) })
+     .catch(error => {
+        console.log(error);
+     });
+    }, []);
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
   const [placeholder, setPlaceholder] = useState('Run a query to see output');
@@ -31,28 +41,28 @@ function OutputConsole({ data }) {
     <div className="output-console" ref={containerRef}>
       <h2>Output Console</h2>
       {data.length > 0 && (
-        <table>
-          <thead>
-            <tr>
-              <th>Customer ID</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Age</th>
-              <th>Country</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentData.map((item, index) => (
-              <tr key={index}>
-                <td>{item.customer_id}</td>
-                <td>{item.first_name}</td>
-                <td>{item.last_name}</td>
-                <td>{item.age}</td>
-                <td>{item.country}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+         <table>
+         <thead>
+             <tr>
+                 <th>ID</th>
+                 <th>Name</th>
+                 <th>Email</th>
+                 <th>City</th>
+             </tr>
+             </thead>
+             <tbody>
+                 {
+                     data.map((user, index)=> {
+                         return <tr key={index}>
+                             <td>{user.id}</td>
+                             <td>{user.name}</td>
+                             <td>{user.email}</td>
+                             <td>{user.address.city}</td>
+                         </tr>
+                     })
+                 }
+             </tbody>
+     </table>
       )}
       {placeholder && <div className="placeholder">{placeholder}</div>}
       {data.length > 0 && (
