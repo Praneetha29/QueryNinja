@@ -58,12 +58,15 @@ function Input({ executeSQL, selectedQuery }) {
         </button>
       </div>
       <div className="code-editor">
+        <label htmlFor="sqlInput">SQL Query</label>
         <AceEditor
           mode="sql"
           theme="dracula"
           onChange={handleInputChange}
           value={inputValue}
           placeholder="Enter your SQL query here..."
+          name="sqlInput" 
+          id="sqlInput"   
         />
       </div>
       <div className="run-buttons">

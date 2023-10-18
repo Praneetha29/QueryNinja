@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import '../styles/TableDropdown.css';
 
@@ -35,15 +34,20 @@ function TableDropdown() {
     },
   ];
 
+  const toggleMenu = () => {
+    setShowTables(!showTables);
+  };
+
   return (
     <div className="dropdown">
       <button
-        className="btn btn-primary" 
+        className="btn btn-primary"
         type="button"
         id="tableDropdown"
-        onClick={() => setShowTables(!showTables)}
-        aria-expanded={showTables}
+        onClick={toggleMenu}
+        aria-expanded={showTables} 
         aria-haspopup="true"
+        tabIndex="0"
       >
         View Tables
       </button>
@@ -67,4 +71,3 @@ function TableDropdown() {
 }
 
 export default TableDropdown;
-
