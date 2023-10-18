@@ -4,7 +4,6 @@ import 'ace-builds/src-noconflict/mode-sql';
 import 'ace-builds/src-noconflict/theme-dracula';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faTrashAlt, faHistory } from '@fortawesome/free-solid-svg-icons';
-
 import '../styles/Input.css';
 
 function Input({ executeSQL, selectedQuery }) {
@@ -58,15 +57,12 @@ function Input({ executeSQL, selectedQuery }) {
         </button>
       </div>
       <div className="code-editor">
-        <label htmlFor="sqlInput">SQL Query</label>
         <AceEditor
           mode="sql"
           theme="dracula"
           onChange={handleInputChange}
           value={inputValue}
           placeholder="Enter your SQL query here..."
-          name="sqlInput" 
-          id="sqlInput"   
         />
       </div>
       <div className="run-buttons">
