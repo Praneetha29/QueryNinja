@@ -4,7 +4,6 @@ import Input from './Input';
 import OutputConsole from './Output';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import customerData from './CustomerData';
 import '../styles/MainContainer.css';
 
 const PreExistingQueries = lazy(() => import('./Queries'));

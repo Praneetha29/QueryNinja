@@ -6,7 +6,7 @@ import axios from 'axios';
 function OutputConsole() {
   const [data, setData] = useState([])
     useEffect(()=> {
-     axios.get('https://jsonplaceholder.typicode.com/users')
+     axios.get('https://652f60a60b8d8ddac0b26932.mockapi.io/users/Customers')
      .then(res=> {console.log(res);
     setData(res.data) })
      .catch(error => {
@@ -19,7 +19,7 @@ function OutputConsole() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    if (data.length > 0) {
+    if (currentData.length > 0) {
       setPlaceholder('');
     } else {
       setPlaceholder('Run a query to see output');
@@ -45,19 +45,21 @@ function OutputConsole() {
          <thead>
              <tr>
                  <th>ID</th>
-                 <th>Name</th>
-                 <th>Email</th>
-                 <th>City</th>
+                 <th>First Name</th>
+                 <th>Last Name</th>
+                 <th>Age</th>
+                 <th>Country</th>
              </tr>
              </thead>
              <tbody>
                  {
-                     data.map((user, index)=> {
+                     currentData.map((user, index)=> {
                          return <tr key={index}>
                              <td>{user.id}</td>
-                             <td>{user.name}</td>
-                             <td>{user.email}</td>
-                             <td>{user.address.city}</td>
+                             <td>{user.FirstName}</td>
+                             <td>{user.LastName}</td>
+                             <td>{user.Age}</td>
+                             <td>{user.Country}</td>
                          </tr>
                      })
                  }
@@ -84,7 +86,7 @@ function OutputConsole() {
           </button>
         </div>
       )}
-      {data.length > 0 && <ExportButton />} 
+      {data.length > 0 && <ExportButton data={data}/>} 
     </div>
   );
 }

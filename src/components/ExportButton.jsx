@@ -1,12 +1,17 @@
+
 import React from 'react';
-import customerData from './CustomerData';
+
 import '../styles/ExportButton.css';
 
-function ExportButton() {
-  const exportToCSV = () => {
-    const csvData = customerData.map((item) =>
-      `${item.customer_id},${item.first_name},${item.last_name},${item.age},${item.country}`
+function ExportButton({ data }) {
+  const [csvData, setCsvData] = React.useState([]);
+
+  const exportToCSV = async () => {
+    const csvData = data.map((item) =>
+      `${item.id},${item.FirstName},${item.LastName},${item.Age},${item.Country}`
     );
+
+    setCsvData(csvData);
 
     const csvContent = [
       'customer_id,first_name,last_name,age,country',
